@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>CPU调度实验</title>
+		<link rel="stylesheet" type="text/css" href="lib/bootstrap.min.css">
+		<style>
+			.container-fluid{
+				margin:0 5%;
+			}
+			.progress-bar-free{
+				background-color:gray;
+			}
+			#gantt_num span{
+				display: inline-block;
+				text-align: right;
+				box-sizing: border-box;
+			}
+			#gantt_num span:first-child{
+				display: inline-block;
+				margin-right: -1%;
+			}
+		</style>
+	</head>
+	<body>
+		<h1 class="text-center">CPU调度实验</h1>
+		<div class="container-fluid">
+			<div class="row">
+				<!--进程信息-->
+				<div class="col-md-2">
+					<h2 class="text-primary">进程信息</h2>
+					<!--input-->
+					<div class="form">
+						<label for="exampleInputEmail1">调度算法：</label>
+						<select id="algorithm" class="form-control">
+						  <option value="0">FCFS</option>
+						  <option value="1">SRJF</option>
+						  <option value="2">RR(时间片=3)</option>
+						  <option value="3">未实现</option>
+						</select><br/>
+
+						<div class="form-group">
+   							<label for="exampleInputEmail1">进程名称：</label>
+    						<input type="text" class="form-control" id="process_name" value="P1">
+  						</div>
+
+						<div class="form-group">
+   							<label for="exampleInputEmail1">到达时间：</label>
+    						<input type="number" class="form-control" id="arrival_time" value="0">
+  						</div>  	
+
+						<div class="form-group">
+   							<label for="exampleInputEmail1">CPU区间：</label>
+    						<input type="number" class="form-control" id="CPU_brust" value="5">
+  						</div>  						
+
+						<div class="form-group">
+   							<label for="exampleInputEmail1">优先级：</label>
+    						<input type="number" class="form-control" id="priority" value="0">
+  						</div>  
+						
+												
+						<button id="btn_add_process" type="button" class="btn btn-default">添加进程</button>
+						
+					</div>
+					
+				</div>
+
+				<!--进程列表-->
+				<div class="col-md-5">
+					<h2 class="text-primary">进程列表</h2>
+					<table class="table" id="process_table">
+						<thead>
+							<tr>
+								<th>进程号</th>
+								<th>进程名称</th>
+								<th>到达时间</th>
+								<th>CPU区间</th>
+								<th>优先级</th>
+								<th>等待时间</th>
+							</tr>
+						</thead>
+						<tbody>
+						</tbody>
+					</table>
+				
+					<button id="btn_clear_process" type="button" class="btn btn-default">清空进程</button>
+					<button id="btn_schedual" type="button" class="btn btn-primary pull-right">调度!</button>
+
+				</div>
+
+				<!--调度结果-->
+				<div class="col-md-5">
+					<h2 class="text-primary">调度结果</h2>
+					<h6 class="text-muted">我就是我，是颜色不一样的进程</h6>
+					<!--gantt图-->
+					<div id="gantt" class="progress">
+					</div>
+					<div id="gantt_num">
+						<span>0</span>
+					</div>
+					<!--等待时间-->
+					<div class="col-md-12">
+						<h2 class="text-warning">平均等待时间: <span id="avg_waiting_time">？</span></h2>
+					</div>
+				</div>
+			</div>			
+		</div>
+		
+	</body>
+	<script src="lib/jquery-3.3.1.min.js" charset="utf-8"></script>
+	<script src="schedual.js"></script>
+	<script src="main.js"></script>
+</html>
