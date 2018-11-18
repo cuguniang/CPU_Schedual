@@ -4,8 +4,8 @@
  */
 
 var process = []; //用户输入的进程列表
-var scheual_process = []; //用于调度的列表
-var schedual_functions = [FCFS, SRTF, RR];
+var schedual_process = []; //用于调度的列表
+var schedual_functions = [FCFS, SRTF, RR,Priority];
 var COLOR = {
 	color: ["primary", "warning", "success", "danger", "default", "info"],
 	index: 0
@@ -42,7 +42,7 @@ function initProcess() {
 
 function deepCopyProcess() {
 	for (var i = 0; i < process.length; i++) {
-		scheual_process[i] = process[i];
+		schedual_process[i] = process[i];
 	}
 }
 
@@ -85,7 +85,7 @@ function addProcess() {
 function clearProcess() {
 	//清空进程数组
 	process = [];
-	scheual_process = [];
+	schedual_process = [];
 	//更新进程列表
 	updateProcessList();
 }
