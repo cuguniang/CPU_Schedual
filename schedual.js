@@ -64,7 +64,7 @@ function SRTF() {
 			ready_queue.push(next_p);
 			now_p = next_p;
 			now_p.start_time = now_time;
-			moveProcess(p, schedual_process, null);
+			moveProcess(next_p, schedual_process, null);
 		}
 		// now_p结束时next_p还未到达
 		else if (next_p == null || now_time + now_p.remaining_time < next_p.arrival_time) {

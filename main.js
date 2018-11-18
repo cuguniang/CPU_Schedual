@@ -88,6 +88,9 @@ function clearProcess() {
 	schedual_process = [];
 	//更新进程列表
 	updateProcessList();
+	
+	$("#gantt").empty();
+	$("#gantt_num").empty();
 }
 
 function schedual() {
